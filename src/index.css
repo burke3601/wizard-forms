@@ -1,6 +1,6 @@
 html {
   background-color: gray;
-  text-align: center;
+  text-align: left;
 }
 section {
   display: flexbox;
@@ -13,3 +13,4 @@ section {
 form {
   flex-wrap: wrap;
 }
+

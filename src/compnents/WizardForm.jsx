@@ -17,7 +17,10 @@ function WizardForm(props) {
                     occupation: occupation,
                     house: house
                 }
-                props.onSubmit(wizardObject)
+                props.onSubmit(wizardObject);
+                setName('');
+                setOccupation('');
+                setHouse('');
 
             }}> 
                 <label>Name:
