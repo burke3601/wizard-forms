@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react'
 
 function WizardForm(props) {
+    //console.log(props.wizard)
     const [name, setName] = useState('');
     const [occupation, setOccupation] = useState('');
     const [house, setHouse] = useState('');
 
+    useEffect(() =>{
+        console.log('the props have changed!!!!!!!!!');
+        if (props.wizard.name) {
+            setName(props.wizard.name);
+            setOccupation(props.wizard.occupation);
+            setHouse(props.wizard.house)
+        }
+    }, [props.wizard]);
+
+    // useEffect(() => {
+    //     console.log('you just changed the name')
+    // }, [name]);
 
     return(
         <section >
@@ -16,6 +29,10 @@ function WizardForm(props) {
                     name: name,
                     occupation: occupation,
                     house: house
+                }
+                //have to include id
+                if (props.wizard.id) {
+                    wizardObject.id = props.wizard.id;
                 }
                 props.onSubmit(wizardObject);
                 setName('');
